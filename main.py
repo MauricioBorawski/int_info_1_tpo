@@ -190,8 +190,18 @@ def listado_detallado_socios(socios: []) -> None:
 
 
 def detalle_socio_por_tipo(socios: []) -> None:
+    print("Seleccione el tipo de socio: ")
+    mostrar_menu(TIPO_SOCIO)
+    option_socio = 0
+    
+    while option_socio > 5 or option_socio < 1:
+        option_socio = int(input("\nIngrese una opción válida: "))
+    
+    for socio in socios:
+        if socio[1] == option_socio-1:
+            print("El socio numero", socio[0], "pertenece al tipo", TIPO_SOCIO[option_socio-1], ", realiza", socio[2], "actividades y debe abonar", socio[3], "pesos.")
+    return main
 
-    return None
 
 
 def manejar_opciones(opcion, socios) -> None:
@@ -217,11 +227,11 @@ def main() -> None:
     socios = generar_socios(100, 1000)
     option = None
 
-    mostrar_menu(MENU)
 
     while option != 5:
+        print("\n")
+        mostrar_menu(MENU)
         option = int(input("Ingrese una opción: "))
-
         manejar_opciones(option, socios)
 
 
