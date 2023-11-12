@@ -3,15 +3,18 @@ from random import randint
 # Constantes
 
 MENU = ["Total de la facturación del mes y cantidad de socios",
-        "Total de facturación por tipo de socio y la cantidad de actividades"
+        "Total de facturación por tipo de socio y la cantidad de actividades "
         "ordenado por facturación",
         "Listado completo detallado del total facturado de cada socio"
         "con su tipo, ordenado por el total facturado",
         "Seleccion de socio",
         "Salir",
         ]
+
 TIPO_SOCIO = ["Junior", "Standard", "Platino", "Oro", "Vitalicio"]
+
 CAT_CANT_ACT = ["0", "hasta 2", "mas de 3"]
+
 COSTOS = [
     [750, 1500, 1000],
     [3000, 2500, 1500],
@@ -143,7 +146,6 @@ def crear_arreglo_con_0(filas,columnas):
 
 # Consigna 1
 
-
 def total_facturacion_mes(socios: []) -> None:
     # return [total_facturacion, cantidad_socios] -> [int, int]
 
@@ -154,7 +156,7 @@ def total_facturacion_mes(socios: []) -> None:
 def calcular_fac_tot_por_tipo_socio(matriz):
     #Se crean las matrices acumuladoras inicializadas en 0
     fact_por_act = crear_arreglo_con_0(5,3)
-    fact_tot = crear_arreglo_con_0(5,1)
+    fact_tot_tipo = crear_arreglo_con_0(5,1)
     #Se comienza el ciclo en el cual se recorre la matriz sumando los facturados
     for i in range(len(matriz)):
         #Se crea una variable catalogo que sirve para ver si el socio entra en la categoria
@@ -166,18 +168,19 @@ def calcular_fac_tot_por_tipo_socio(matriz):
             cat_act = 2
         #Se realizan las sumas en las matrices acumuladoras
         fact_por_act[matriz[i][1]][cat_act] += matriz[i][3]
-        fact_tot[matriz[i][1]] += matriz[i][3]
+        fact_tot_tipo[matriz[i][1]] += matriz[i][3]
     #Se crea un vector orden segun el total facturado de mayor a menor
-    orden_tot = vec_ord_vec(fact_tot)
+    orden_tot = vec_ord_vec(fact_tot_tipo)
     #Se recorre el vector de facturados totales por tipo de socio imprimiendo los tipos de socios
-    for i in range(len(fact_tot)):
-        print("Socios",TIPO_SOCIO[orden_tot[i]])
+    for i in range(len(fact_tot_tipo)):
+        print("Socios ",TIPO_SOCIO[orden_tot[i]],":",sep = "")
         #Se crea un vector orden segun el facturado por cantidad de actividades de mayor a menor
         orden_act = vec_ord_vec(fact_por_act[orden_tot[i]])
         #Se recorre el vector correspondiente a ese tipo de socio de la matriz facturado por cant de actividades
         for j in range(len(fact_por_act[orden_tot[i]])):
             print("Con",CAT_CANT_ACT[orden_act[j]],"actividades:", fact_por_act[orden_tot[i]][orden_act[j]])
-
+        print() #Imprime un espacio para separar los tipos de socios
+        
 
 # Consigna 3
 
@@ -210,7 +213,7 @@ def manejar_opciones(opcion, socios) -> None:
     if opcion == 1:
         total_facturacion_mes(socios)
     elif opcion == 2:
-        print("Opción 2")
+        calcular_fac_tot_por_tipo_socio(socios)
     elif opcion == 3:
         listado_detallado_socios(socios)
     elif opcion == 4:
