@@ -145,9 +145,55 @@ def crear_arreglo_con_0(filas,columnas):
     return matriz
 
 # Consigna 1
-
-def total_facturacion_mes(socios: []) -> None:
-    # return [total_facturacion, cantidad_socios] -> [int, int]
+def total_facturacion_mes(tipo_socio, cant_actividades) -> None:
+    #Se inicializan los contadores de cantidad y tipos de socios
+    cant_socios = 0
+    junior = 0
+    standard = 0
+    platino = 0
+    oro = 0
+    vitalicio = 0
+    #Se recorre la lista de tipos de socios para asignarle a cada uno su correspondiente factura
+    for i in range(len(tipo_socio)):
+        if tipo_socio[i] == 0:
+            if cant_actividades[i] >= 0 and cant_actividades[i] <= 2:
+                junior += (750 + (1500 * cant_actividades[i]))
+            elif cant_actividades[i] >= 3 and cant_actividades[i] <= 6:
+                junior += (750 + (1000 * cant_actividades[i]))
+            #Se agrega un socio
+            cant_socios += 1
+        if tipo_socio[i] == 1:
+            if cant_actividades[i] >= 0 and cant_actividades[i] <= 2:
+                standard += (3000 + (2500 * cant_actividades[i]))
+            elif cant_actividades[i] >= 3 and cant_actividades[i] <= 6:
+                standard += (3000 + (1500 * cant_actividades[i]))
+            #Se agrega un socio
+            cant_socios += 1
+        if tipo_socio[i] == 2:
+            if cant_actividades[i] >= 0 and cant_actividades[i] <= 2:
+                platino += (2300 + (1500 * cant_actividades[i]))
+            elif cant_actividades[i] >= 3 and cant_actividades[i] <= 6:
+                platino += (2300 + (1300 * cant_actividades[i]))
+            #Se agrega un socio
+            cant_socios += 1
+        if tipo_socio[i] == 3:
+            if cant_actividades[i] >= 0 and cant_actividades[i] <= 2:
+                oro += (1900 + (1500 * cant_actividades[i]))
+            elif cant_actividades[i] >= 3 and cant_actividades[i] <= 6:
+                oro += (1900 + (1300 * cant_actividades[i]))
+            #Se agrega un socio
+            cant_socios += 1
+        if tipo_socio[i] == 4:
+            if cant_actividades[i] >= 0 and cant_actividades[i] <= 2:
+                vitalicio += (0 + (1000 * cant_actividades[i]))
+            elif cant_actividades[i] >= 3 and cant_actividades[i] <= 6:
+                vitalicio += (0 + (750 * cant_actividades[i]))
+            #Se agrega un socio
+            cant_socios += 1
+        #Se suman todas las facturas de todos los tipos de socios
+        facturacion_total = junior + standard + platino + oro + vitalicio
+        #Se devuelve el total facturado y la cantidad de socios
+        return facturacion_total, cant_socios
 
     return None
 
