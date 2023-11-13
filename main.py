@@ -183,10 +183,16 @@ def calcular_fac_tot_por_tipo_socio(matriz):
         
 
 # Consigna 3
-
-
 def listado_detallado_socios(socios: []) -> None:
+    socios_ordenados = ordenar_matriz(socios, 3)  # Ordena la matriz por el total facturado
 
+    for socio in socios_ordenados:
+        id_socio = socio[0]
+        tipo_socio = TIPO_SOCIO[socio[1]]
+        total_facturado = socio[3]
+
+        print("El socio", id_socio, ": Tipo" , tipo_socio , ", debe abonar un total de :" , total_facturado, "pesos")
+        
     return None
 
 # Consigna 4
