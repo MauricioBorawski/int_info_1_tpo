@@ -209,7 +209,7 @@ def listado_detallado_socios(socios: []) -> None:
 # Consigna 4
 
 
-def detalle_socio_por_tipo(socios: []) -> None:
+def detalle_socio_por_tipo(socios):
     print("Seleccione el tipo de socio: ")
     mostrar_menu(TIPO_SOCIO)
     option_socio = 0
@@ -220,7 +220,6 @@ def detalle_socio_por_tipo(socios: []) -> None:
     for socio in socios:
         if socio[1] == option_socio-1:
             print("El socio numero", socio[0], "pertenece al tipo", TIPO_SOCIO[option_socio-1], ", realiza", socio[2], "actividades y debe abonar", socio[3], "pesos.")
-    return main
 
 
 
