@@ -79,22 +79,14 @@ def ordenar_matriz(matriz,cve):
         matriz[j] = aux
     return matriz
 
-#Ordena el vector y lo devuelve ordenado
-def ordenar_vector(vector): 
-    for i in range (1, len(vector)):
-        aux = vector[i]
-        j = i
-        while j > 0 and vector[j-1] < aux:
-            vector[j] = vector[j-1]
-            j = j - 1
-        vector[j] = aux
-    return vector
 
 #Crea un vector auxiliar las posiciones del vector ordenados por facturacion en orden descendente y lo devuelve
 def vec_ord_vec(vector): 
     vec = []
+    #Le asigna el indice al vector
     for i in range (0, len(vector)):
         vec.append(i)
+    #Comienza la funcion de ordenamiento por insercion
     for i in range (1, len(vector)):
         aux = vec[i]
         j = i
@@ -104,33 +96,6 @@ def vec_ord_vec(vector):
         vec[j] = aux
     return vec
 
-#Crea un vector auxiliar con los ids de la matriz ordenados por facturacion en orden descendente
-def vec_ord_matriz_con_id(matriz,id_socio,cve_ord): 
-    vec = []
-    for i in range (0, len(matriz)):
-        vec.append(matriz[i][id_socio])
-    for i in range (1, len(matriz)):
-        aux = vec[i]
-        j = i
-        while j > 0 and matriz[vec[j-1]][cve_ord] < matriz[aux][cve_ord]:
-            vec[j] = vec[j-1]
-            j = j - 1
-        vec[j] = aux
-    return vec
-
-#Crea un vector auxiliar con las posiciones de la matriz ordenados por el campo cve pedido en orden descendente y lo devuelve
-def vec_ord_matriz(matriz,cve_ord): 
-    vec = []
-    for i in range (0, len(matriz)):
-        vec.append(i)
-    for i in range (1, len(matriz)):
-        aux = vec[i]
-        j = i
-        while j > 0 and matriz[vec[j-1]][cve_ord] < matriz[aux][cve_ord]:
-            vec[j] = vec[j-1]
-            j = j - 1
-        vec[j] = aux
-    return vec
 
 #Crea y devuelve un array relleno con 0's con la cantidad de filas y columnas pedidas
 def crear_arreglo_con_0(filas,columnas): 
