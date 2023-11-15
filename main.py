@@ -1,4 +1,4 @@
-from random import randint
+import random
 
 # Constantes
 
@@ -9,8 +9,7 @@ MENU = [
     "Listado completo detallado del total facturado de cada socio"
     "con su tipo, ordenado por el total facturado",
     "Selección de socio",
-    "Salir",
-]
+    "Salir" ]
 
 TIPO_SOCIO = ["Junior", "Standard", "Platino", "Oro", "Vitalicio"]
 
@@ -21,13 +20,13 @@ COSTOS = [
     [3000, 2500, 1500],
     [2300, 1500, 1300],
     [1900, 1500, 1300],
-    [0, 1000, 750],
-]
+    [0, 1000, 750] ]
+
 
 # Metodos generales
 # Funciones
 
-def mostrar_menu(options: []) -> None:
+def mostrar_menu(options: []):
     contador = 1
     print("Bienvenido al programa")
     print()
@@ -54,13 +53,13 @@ def generar_factura(tipo_socio, cant_activades):
 
 def generar_socios(min_value, max_value):
     socios = []
-    cantidad_generar = randint(min_value, max_value)
+    cantidad_generar = random.randint(min_value, max_value)
     id_socio = 0
 
     for _ in range(cantidad_generar):
         socio = []
-        tipo_socio = randint(0, 4)
-        cant_actividades = randint(0, 6)
+        tipo_socio = random.randint(0, 4)
+        cant_actividades = random.randint(0, 6)
         facturacion = generar_factura(tipo_socio, cant_actividades)
 
         socio.append(id_socio)
@@ -119,24 +118,19 @@ def crear_arreglo_con_0(filas, columnas):
 
 # Consigna 1
 
-
-def total_facturacion_mes(socios) -> None:
+def total_facturacion_mes(socios):
     facturacion_total = 0
     for i in range(len(socios)):
         facturacion = socios[i][3]
         facturacion_total += facturacion
 
-    print(
-        "La cantidad de socios total del mes es:",
-        len(socios),
-        "Total facturado es:",
-        facturacion_total,
-    )
+    print("La cantidad de socios total del mes es:", len(socios))
+    print("El total facturado es: $", facturacion_total)
 
 
 # Consigna 2
 
-def calcular_fac_tot_por_tipo_socio(matriz) -> None:
+def calcular_fac_tot_por_tipo_socio(matriz):
     # Se crean las matrices acumuladoras inicializadas en 0
     fact_por_act = crear_arreglo_con_0(5, 3)
     fact_tot_tipo = crear_arreglo_con_0(5, 1)
@@ -172,80 +166,64 @@ def calcular_fac_tot_por_tipo_socio(matriz) -> None:
 
 # Consigna 3
 
-def listado_detallado_socios(socios: []) -> None:
-    socios_ordenados = ordenar_matriz(
-        socios, 3
-    )  # Ordena la matriz por el total facturado
+def listado_detallado_socios(socios):
+    socios_ordenados = ordenar_matriz(socios, 3)  # Ordena la matriz por el total facturado
 
     for socio in socios_ordenados:
         id_socio = socio[0]
         tipo_socio = TIPO_SOCIO[socio[1]]
         total_facturado = socio[3]
 
-        print(
-            "El socio",
-            id_socio,
-            ": Tipo",
-            tipo_socio,
-            ", debe abonar un total de :",
-            total_facturado,
-            "pesos",
-        )
+        print("El socio", id_socio, ": Tipo", tipo_socio, ", debe abonar un total de :", total_facturado, "pesos",)
 
 
 # Consigna 4
 
-def mostrar_menu_socio() -> None:
+def mostrar_menu_socio():
     print("\n")
     print("Seleccione el tipo de socio: ")
     mostrar_menu(TIPO_SOCIO)
     print("6 Atras")
 
 
-def detalle_socio_por_tipo(socios) -> None:
+def detalle_socio_por_tipo(socios):
     mostrar_menu_socio()
     option_socio = 0
 
     while option_socio != 6:
-        option_socio = int(input("\n Ingrese una opcion:"))
+        option_socio = int(input("\n Ingrese una opción:"))
 
         for socio in socios:
             if socio[1] == option_socio - 1:
-                print(
-                    "El socio numero",
-                    socio[0],
-                    "pertenece al tipo",
-                    TIPO_SOCIO[option_socio - 1],
-                    ", realiza",
-                    socio[2],
-                    "actividades y debe abonar",
-                    socio[3],
-                    "pesos.",
-                )
+                print("El socio número", socio[0], "pertenece al tipo", TIPO_SOCIO[option_socio - 1], ", realiza", socio[2], "actividades y debe abonar", socio[3], "pesos.")
         if option_socio != 6:
             mostrar_menu_socio()
 
 
-def manejar_opciones(opcion, socios) -> None:
+def manejar_opciones(opcion, socios):
     print("\n")
 
     if opcion == 1:
+        print("Has elegido la opción 1")
         total_facturacion_mes(socios)
     elif opcion == 2:
+        print("Has elegido la opción 2")
         calcular_fac_tot_por_tipo_socio(socios)
     elif opcion == 3:
+        print("Has elegido la opción 3")
         listado_detallado_socios(socios)
     elif opcion == 4:
+        print("Has elegido la opción 4")
         detalle_socio_por_tipo(socios)
     elif opcion == 5:
         print("Gracias por usar el programa")
     else:
-        print("Opción incorrecta, por favor selecciones una de las opciones del menu")
+        print("Opción incorrecta, por favor seleccione una de las opciones del menu")
 
 
 # Funcion principal
 
-def main() -> None:
+def main():
     socios = generar_socios(100, 1000)
     option = None
 
@@ -257,3 +235,6 @@ def main() -> None:
 
 
 main()
+
+
+#Fin del programa
