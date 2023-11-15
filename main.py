@@ -8,7 +8,7 @@ MENU = [
     "ordenado por facturación",
     "Listado completo detallado del total facturado de cada socio"
     "con su tipo, ordenado por el total facturado",
-    "Selección de socio",
+    "Seleccion de socio",
     "Salir" ]
 
 TIPO_SOCIO = ["Junior", "Standard", "Platino", "Oro", "Vitalicio"]
@@ -130,7 +130,7 @@ def total_facturacion_mes(socios):
 
 # Consigna 2
 
-def calcular_fac_tot_por_tipo_socio(matriz):
+def calcular_fac_tot_por_tipo_socio(matriz) -> None:
     # Se crean las matrices acumuladoras inicializadas en 0
     fact_por_act = crear_arreglo_con_0(5, 3)
     fact_tot_tipo = crear_arreglo_con_0(5, 1)
@@ -166,7 +166,7 @@ def calcular_fac_tot_por_tipo_socio(matriz):
 
 # Consigna 3
 
-def listado_detallado_socios(socios):
+def listado_detallado_socios(socios) -> None:
     socios_ordenados = ordenar_matriz(socios, 3)  # Ordena la matriz por el total facturado
 
     for socio in socios_ordenados:
@@ -179,14 +179,14 @@ def listado_detallado_socios(socios):
 
 # Consigna 4
 
-def mostrar_menu_socio():
+def mostrar_menu_socio() -> None:
     print("\n")
     print("Seleccione el tipo de socio: ")
     mostrar_menu(TIPO_SOCIO)
     print("6 Atras")
 
 
-def detalle_socio_por_tipo(socios):
+def detalle_socio_por_tipo(socios)-> None:
     mostrar_menu_socio()
     option_socio = 0
 
@@ -200,7 +200,7 @@ def detalle_socio_por_tipo(socios):
             mostrar_menu_socio()
 
 
-def manejar_opciones(opcion, socios):
+def manejar_opciones(opcion, socios)-> None:
     print("\n")
 
     if opcion == 1:
