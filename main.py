@@ -8,7 +8,7 @@ MENU = [
     "ordenado por facturación",
     "Listado completo detallado del total facturado de cada socio"
     "con su tipo, ordenado por el total facturado",
-    "Seleccion de socio",
+    "Selección de socio",
     "Salir",
 ]
 
@@ -25,10 +25,12 @@ COSTOS = [
 ]
 
 # Metodos generales
-
+# Funciones
 
 def mostrar_menu(options: []) -> None:
     contador = 1
+    print("Bienvenido al programa")
+    print()
 
     for opcion in options:
         print(contador, opcion)
@@ -134,7 +136,6 @@ def total_facturacion_mes(socios) -> None:
 
 # Consigna 2
 
-
 def calcular_fac_tot_por_tipo_socio(matriz) -> None:
     # Se crean las matrices acumuladoras inicializadas en 0
     fact_por_act = crear_arreglo_con_0(5, 3)
@@ -170,6 +171,7 @@ def calcular_fac_tot_por_tipo_socio(matriz) -> None:
 
 
 # Consigna 3
+
 def listado_detallado_socios(socios: []) -> None:
     socios_ordenados = ordenar_matriz(
         socios, 3
@@ -192,7 +194,6 @@ def listado_detallado_socios(socios: []) -> None:
 
 
 # Consigna 4
-
 
 def mostrar_menu_socio() -> None:
     print("\n")
@@ -243,7 +244,6 @@ def manejar_opciones(opcion, socios) -> None:
 
 
 # Funcion principal
-
 
 def main() -> None:
     socios = generar_socios(100, 1000)
