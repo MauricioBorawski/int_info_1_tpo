@@ -26,7 +26,7 @@ COSTOS = [
 # Metodos generales
 # Funciones
 
-def mostrar_menu(options: []):
+def mostrar_menu(options: []) -> None:
     contador = 1
     print("Bienvenido al programa")
     print()
@@ -118,7 +118,7 @@ def crear_arreglo_con_0(filas, columnas):
 
 # Consigna 1
 
-def total_facturacion_mes(socios):
+def total_facturacion_mes(socios) -> None:
     facturacion_total = 0
     for i in range(len(socios)):
         facturacion = socios[i][3]
@@ -186,7 +186,7 @@ def mostrar_menu_socio() -> None:
     print("6 Atras")
 
 
-def detalle_socio_por_tipo(socios)-> None:
+def detalle_socio_por_tipo(socios) -> None:
     mostrar_menu_socio()
     option_socio = 0
 
@@ -200,7 +200,7 @@ def detalle_socio_por_tipo(socios)-> None:
             mostrar_menu_socio()
 
 
-def manejar_opciones(opcion, socios)-> None:
+def manejar_opciones(opcion, socios) -> None:
     print("\n")
 
     if opcion == 1:
@@ -223,7 +223,7 @@ def manejar_opciones(opcion, socios)-> None:
 
 # Funcion principal
 
-def main():
+def main() -> None:
     socios = generar_socios(100, 1000)
     option = None
 
