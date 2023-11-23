@@ -26,7 +26,7 @@ COSTOS = [
 # Metodos generales
 # Funciones
 
-def mostrar_menu(options) -> None:
+def mostrar_menu(options: []) -> None:
     contador = 1
     print("Bienvenido al programa")
     print()
