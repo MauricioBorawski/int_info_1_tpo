@@ -44,9 +44,11 @@ Todos los meses, tienen que generar la facturación del socio del mes, el cual s
 
 ## Aclaraciones
 
-1. La cantidad de socios varia entre `100` como minimo y un maximo de `100`
+1. La cantidad de socios varia entre `100` como minimo y un maximo de `1000`
 
 2. La cantidad de actividades que cada socio puede hacer es de un maximo de 6 y un minimo de 0.
+
+---
 
 # Estructura del Proyecto
 
@@ -98,10 +100,12 @@ Se encarga de generar una lista anidada con la informacion de cada socio, indica
 Recive como parametro un numero `minimo` y `maximo`
 
 ```python
-[
-id, Platino, actividades, 3900
-[0, 2, 3, 4500],
-]
+generar_socios(100, 1000):
+
+    [
+    [0, 2, 3, 4500],
+    id, Platino, actividades, facturacion
+    ]
 ```
 
 ---
@@ -138,7 +142,15 @@ Se encarga de generar el listado de `socios` y de llamar a las funciones necesar
 
 # Consigna 1
 
-### Total de la facturación del mes y cantidad de socios
+## Total de la facturación del mes y cantidad de socios
+
+`total_facturacion_mes`
+
+1. Inicializar `facturacion_total` con el valor de 0
+2. Recorre la lista de socios y se le suma a `facturacion_total` el valor de facturacion que se encuentra en cada socio
+3. Para saber la cantidad de socios se hace un `len` de la lista original de socios
+4. Se muestran los resultados
+
 
 ---
 
@@ -152,12 +164,22 @@ Se encarga de generar el listado de `socios` y de llamar a las funciones necesar
 
 ### Listado completo detallado del total facturado de cada socio con su tipo, ordenado por el total facturado
 
+`listado_detallado_socios`
+
+1. Se utiliza la funcion `ordenar_matriz` para ordenar la lista de `socios` por su facturacion en orden descendente
+2. Se recorre la lista ordenada y se muestran los datos correspondientes
+
 ---
 
 # Consigna 4
 
 ### Poder seleccionar un tipo de socio y que se detallen la facturación y cantidad de actividades de cada uno.  
 
+`detalle_socio_por_tipo`
 
+1. Se le muestra al usuario un nuevo menu para que pueda ingresar el tipo de socio
+2. Se le pide al usuario que ingrese el tipo de socio que desea consultar
+3. Se recorre la lista de socios original
+4. Se pregunta si el `tipo_socio` es igual a la opcion indicada por el usuario, y si es verdadero se muestra en pantalla ese socio. En  caso contrario, no se muestra nada.
 
 

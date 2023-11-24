@@ -28,7 +28,6 @@ COSTOS = [
 
 def mostrar_menu(options) -> None:
     contador = 1
-    print("Bienvenido al programa")
     print()
 
     for opcion in options:
@@ -226,6 +225,8 @@ def manejar_opciones(opcion, socios) -> None:
 def main() -> None:
     socios = generar_socios(100, 1000)
     option = None
+
+    print("Bienvenido al programa")
 
     while option != 5:
         print("\n")
