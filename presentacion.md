@@ -146,17 +146,12 @@ Se encarga de generar el listado de `socios` y de llamar a las funciones necesar
 
 `total_facturacion_mes`
 
-1. Inicializar `facturacion_total` con el valor de 0
-2. Recorre la lista de socios y se le suma a `facturacion_total` el valor de facturacion que se encuentra en cada socio
-3. Para saber la cantidad de socios se hace un `len` de la lista original de socios
-4. Se muestran los resultados
-
-
----
-
-# Consigna 2
-
-### Total de facturación por tipo de socio y la cantidad de actividades, ordenado por facturacion
+1. La función recibe la matriz o el array de socios 
+2. Se inicializa el contador de la facturacion_total con el valor de 0
+3. Se recorre la lista de socios elemento a elemento mediante un ciclo for
+4. Dentro del ciclo, se crea una variable facturacion y se le asigna el valor del elemento i de la lista 3 de la matriz de socios (es la que contiene los costos)
+4. Se le suma a facturacion_total el valor de facturacion que se encuentra en cada socio
+5. Se muestran los resultados (len de la lista original de socios para mostrar la cantidad de socios y facturacion_total)
 
 ---
 
