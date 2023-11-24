@@ -195,6 +195,11 @@ def detalle_socio_por_tipo(socios) -> None:
         for socio in socios:
             if socio[1] == option_socio - 1:
                 print("El socio número", socio[0], "pertenece al tipo", TIPO_SOCIO[option_socio - 1], ", realiza", socio[2], "actividades y debe abonar", socio[3], "pesos.")
+        
+        if (option_socio > 6 or option_socio <= 0):
+            print("\n")
+            print("Opcion incorrecta, seleccione una opcion valida.")
+
         if option_socio != 6:
             mostrar_menu_socio()
 

@@ -59,6 +59,8 @@ El programa consiste en:
 - Funciones Principales
 - Programa Principal
 
+![Estructura_proyecto](./SociosDelClub.png)
+
 ---
 
 # Constantes
@@ -97,7 +99,7 @@ Recive como parametro el `tipo_socio` y la `cant_actividades`
 
 Se encarga de generar una lista anidada con la informacion de cada socio, indicando un `id` unico, el `tipo_socio`, la `cant_actividades` y su `facturacion`.
 
-Recive como parametro un numero `minimo` y `maximo`
+Recibe como parametro un numero `minimo` y `maximo`
 
 ```python
 generar_socios(100, 1000):
